@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Details</title>
+    <style>
+        *{
+            margin:0px;
+            padding:0px;
+        }
+        body{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+        .outerbox{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+    </style>
+        <script language="javascript">
+        let PNRgenerated;
+        function generatePNR()
+        {
+            var arr=["1234567890","1235674321","9873127654","1236441278","6784559876","378122314","9876540987","4456789876","2457885432","347688765"];
+            var n=Math.floor(Math.random()*10);
+            PNRgenerated=arr[n];
+            alert("Your generated PNR is :"+PNRgenerated);
+            document.getElementById("pnr").value=PNRgenerated;
+            document.getElementById("form1").submit();
+        }
+        </script>
+</head>
+<body>
+    <div class="outerbox">
+        <form id="form1" action="Reserve.jsp" metod="post">
+            <label for="trainNum">Train Number:</label>
+            <input type="number" name="trainNum"><br>
+            <label for="trainName">Train Name:</label>
+            <input type="text" name="trainName"><br>
+            <label for="classType">ClassType</label>
+            <input type="text" name="classType"><br>
+            <label for="DateOfJourney">DateOfJourney</label>
+            <input type="date" name="DateOfJourney"><br>
+            <label for="from">From:</label>
+            <input type="text" name="from"><br>
+            <label for="to">To:</label>
+            <input type="text" name="to"><br>
+            <input type="hidden" name="pnr" id="pnr"> 
+            <input type="button" value="OK" onClick="generatePNR()">
+        </form>
+    </div>
+</body>
+</html>
